@@ -5,11 +5,10 @@ export default function Root(params) {
     const navigate = useNavigate();
     
     useEffect(() => {
-        if (!localStorage.getItem("loginConf")) navigate("login");
+        if (!localStorage.getItem("loginConf")) navigate("enter");
     }, []);
 
     return <div className="inner-root">
-        <h1>Welcome!</h1>
         <Outlet/>
     </div>
 };

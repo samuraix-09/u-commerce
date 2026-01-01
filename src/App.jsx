@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import SignIn from './pages/Signin'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './Root'
+import EnterPage from './pages/EnterPage'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       path: "/",
       element: <Root />,
       children: [
+        {path:"/enter" , element:<EnterPage/>},
         { path: "/signin", element: <SignIn /> },
         { path: "/login", element: <Login /> },
       ],

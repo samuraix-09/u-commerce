@@ -1,0 +1,34 @@
+.enter-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* IMAGE */
+.enter-page img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin-bottom: 32px;
+}
+
+/* BUTTON */
+.enter-page button {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: #ffffff;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.enter-page button:hover {
+  background: #e5e5e5;
+}
