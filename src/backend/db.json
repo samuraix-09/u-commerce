@@ -1,11 +1,4 @@
 {
   "users": [
-    {
-      "email": "axmedovaasira@gmail.com",
-      "password": "$2a$10$HxYmNzS1LR1iXpJJZ5aAKuDf6NcNQdtYJW60tmt9IKozdmdRtMF9q",
-      "name": "Steve Jobs",
-      "role": "student",
-      "id": "1767284935455"
-    }
   ]
 }

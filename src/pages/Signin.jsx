@@ -7,7 +7,6 @@ export default function SignIn() {
         name: "",
         email: "",
         password: "",
-        role: "student",
     });
     const navigate = useNavigate();
 
@@ -20,7 +19,7 @@ export default function SignIn() {
         e.preventDefault();
 
         try {
-            const res = await fetch("http://localhost:3000/users", {
+            const res = await fetch("http://localhost:5000/users", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ ...form, id: String(Date.now()) }),
@@ -29,8 +28,8 @@ export default function SignIn() {
             if (!res.ok) throw new Error("Error at submitting!");
             const data = await res.json();
             localStorage.setItem("loginConf", JSON.stringify(data));
-            setForm({ name: "", email: "", password: "", role: "student" });
-            navigate("/");
+            setForm({ name: "", email: "", password: ""});
+            navigate("/home");
             console.log(data);
         } catch (error) {
             alert(error.message);
@@ -39,47 +38,62 @@ export default function SignIn() {
 
     return (
         <div className="container">
-            <h3>Register</h3>
+            <h3>Create an account</h3>
+            <p className="subtitle">Let’s create your account.</p>
+
             <form onSubmit={handleSubmit}>
-                <Link to="/login">Or Log In</Link>
-                <div>
-                    <label style={{ color: "white" }}>Name</label>
+                <div className="field">
+                    <label>Full Name</label>
                     <input
                         name="name"
                         value={form.name}
                         onChange={handleChange}
-                        placeholder="Name"
+                        placeholder="Enter your full name"
                         type="text"
                         required
                     />
                 </div>
 
-                <div>
-                    <label style={{ color: "white" }}>Email</label>
+                <div className="field">
+                    <label>Email</label>
                     <input
                         name="email"
                         value={form.email}
                         onChange={handleChange}
-                        placeholder="you@example.com"
+                        placeholder="Enter your email address"
                         type="email"
                         required
                     />
                 </div>
 
-                <div>
-                    <label style={{ color: "white" }}>Password</label>
+                <div className="field password">
+                    <label>Password</label>
                     <input
                         name="password"
                         value={form.password}
                         onChange={handleChange}
                         type="password"
-                        placeholder="********"
+                        placeholder="Enter your password"
                         required
                     />
+                    <span className="eye">👁</span>
                 </div>
 
-                <button type="submit">Sign In</button>
+                <button type="submit" className="primary">
+                    Create an Account
+                </button>
+
+                <div className="divider">Or</div>
+
+                <button type="button" className="google">
+                    Sign Up with Google
+                </button>
+
+                <p className="bottom">
+                    Already have an account? <Link to="/login">Log In</Link>
+                </p>
             </form>
         </div>
+
     );
 };
