@@ -11,7 +11,7 @@ export default function Login() {
         e.preventDefault();
 
         try {
-            const res = await fetch("http://localhost:5000/login", {
+            const res = await fetch("http://localhost:3000/users", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
@@ -19,7 +19,7 @@ export default function Login() {
             if (!res.ok) throw new Error("Error at submitting!");
             const data = await res.json();
             localStorage.setItem("loginConf", JSON.stringify(data));
-            navigate("/");
+            navigate("/home");
         } catch (error) {
             alert(error.message);
         }
