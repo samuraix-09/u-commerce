@@ -23,23 +23,19 @@ export default function Login({ setStatus }) {
     }
 
     try {
-      // Login uchun backendga GET qilish yoki query orqali tekshirish
       const res = await fetch(
         `http://localhost:3000/users?email=${email}&password=${password}`
       );
       const users = await res.json();
 
       if (users.length === 0) {
-        // Foydalanuvchi topilmadi
-        setError("Email yoki parol noto‘g‘ri. Ro'yxatdan o'ting!");
+        setError("Email yoki parol noto'g'ri. Ro'yxatdan o'ting!");
         navigate("/signin");
       } else {
-        // Foydalanuvchi topildi
         const user = users[0];
 
-        // Token yoki shunchaki localStorage saqlash
         localStorage.setItem("user", JSON.stringify(user));
-        localStorage.setItem("token", "dummy-token"); // backend bo'lmasa
+        localStorage.setItem("token", "dummy-token");
 
         setStatus("entered");
         navigate("/home");
