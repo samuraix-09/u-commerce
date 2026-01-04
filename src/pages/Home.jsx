@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-function Home({changeStatus}){
+function Home(){
     let navigate = useNavigate();
     function changed(){
         changeStatus("entering");
@@ -8,7 +8,7 @@ function Home({changeStatus}){
     }
     return <div>
         <h1>Bu home page</h1>
-        <button onClick={changed}>Logout</button>
+        <button>Logout</button>
     </div>
 }
 

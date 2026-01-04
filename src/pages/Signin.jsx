@@ -29,7 +29,7 @@ export default function Signin() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: name, email: email, password: password }),
       });
-      
+
       const data = await res.json();
 
       if (!res.ok) {
@@ -37,7 +37,6 @@ export default function Signin() {
       };
 
       localStorage.setItem("loginConf", JSON.stringify(data));
-      console.log(data);
 
       navigate("/home");
     } catch (err) {
@@ -50,14 +49,14 @@ export default function Signin() {
   return (
     <div className="container signin-container">
       <div className="signin-header">
-        <h2>Ro‘yxatdan O‘tish</h2>
+        <h2>Register</h2>
       </div>
 
       <form onSubmit={handleSubmit} className="signin-form">
         {error && <div className="error-message">{error}</div>}
 
         <div className="form-group">
-          <label>Ism</label>
+          <label>Name</label>
           <input
             type="text"
             value={name}
@@ -83,7 +82,7 @@ export default function Signin() {
         </div>
 
         <div className="form-group">
-          <label>Parol</label>
+          <label>Password</label>
           <div className="password-wrapper">
             <input
               type={showPassword ? "text" : "password"}
@@ -110,8 +109,8 @@ export default function Signin() {
         </button>
 
         <div className="signin-link">
-          <span>Allaqachon hisobingiz bormi? </span>
-          <Link to="/login">Tizimga kirish</Link>
+          <span style={{marginRight: "15px"}}>Have an account?</span>
+          <Link to="/login">Log in</Link>
         </div>
       </form>
     </div>

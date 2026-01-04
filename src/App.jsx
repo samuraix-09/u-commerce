@@ -1,6 +1,6 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import './App.css'
-import Root from './Root'
+import Root from './ProtectedRoot'
 import { useState } from 'react'
 import EnterPage from './pages/EnterPage'
 import Login from './pages/Login'
@@ -10,25 +10,33 @@ import Search from './pages/Search'
 import Saved from './pages/Saved'
 import Cart from './pages/Cart'
 import Account from './pages/Account'
+import PublicRoot from './PublicRoot'
+import ProtectedRoot from './ProtectedRoot'
+import ProtectedRoute from './ProtectedRoute'
 
 function App() {
-  const [status , setStatus] = useState("entering")
   const router = createBrowserRouter([
     {
-      path:"/",
-      element:<Root status={status}/>,
-      children:[
-        {path:"/", element:<EnterPage/>},
-        {path:"/login" , element:<Login setStatus={setStatus}/>},
-        {path:"/signin" , element:<SignIn/>},
-        {path:"/home" , element:<Home changeStatus={setStatus}/>},
-        {path:"/search" , element:<Search/>},
-        {path:"/saved" , element:<Saved/>},
-        {path:"/cart" , element:<Cart/>},
-        {path:"/account" , element:<Account/>}
-      ]
-    }
-  ])
+      element: <PublicRoot />,
+      children: [
+        { path: "/login", element: <Login /> },
+        { path: "/signin", element: <SignIn /> },
+        { path: "/", element: <EnterPage /> },
+      ],
+    },
+    {
+      element: <ProtectedRoot />,
+      children: [
+        { path: "/home", element: <ProtectedRoute><Home /></ProtectedRoute> },
+        { path: "/search", element: <ProtectedRoute><Search /></ProtectedRoute> },
+        { path: "/saved", element: <ProtectedRoute><Saved /></ProtectedRoute> },
+        { path: "/cart", element: <ProtectedRoute><Cart /></ProtectedRoute> },
+        { path: "/account", element: <ProtectedRoute><Account /></ProtectedRoute> },
+      ],
+    },
+    { path: "*", element: <Navigate to="/" /> },
+  ]);
+
   return <RouterProvider router={router}></RouterProvider>
 }
 
