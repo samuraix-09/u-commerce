@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Signin.css";
 
 export default function Signin() {
-  const [name, setName] = useState(localStorage.getItem("name") || "");
-  const [email, setEmail] = useState(localStorage.getItem("email") || "");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState(localStorage.getItem("password") || "");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -12,51 +12,36 @@ export default function Signin() {
 
   const navigate = useNavigate();
 
-  // Har bir input o‘zgarishini localStorage ga saqlaymiz
-  useEffect(() => {
-    localStorage.setItem("name", name);
-  }, [name]);
-
-  useEffect(() => {
-    localStorage.setItem("email", email);
-  }, [email]);
-
-  useEffect(() => {
-    localStorage.setItem("password", password);
-  }, [password]);
-
   async function handleSubmit(e) {
     e.preventDefault();
     setError("");
     setLoading(true);
 
     if (!name || !email || !password) {
-      setError("Iltimos, barcha maydonlarni to‘ldiring");
+      setError("Please fill out all the fields!");
       setLoading(false);
       return;
     }
 
     try {
-      const res = await fetch("http://localhost:3000/users", {
+      const res = await fetch("http://localhost:5000/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password , status:"user" , id:Math.random()*1000000000000}),
+        body: JSON.stringify({ name: name, email: email, password: password }),
       });
-
+      
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message || "Ro‘yxatdan o‘tish muvaffaqiyatsiz");
-      }
+        throw new Error(data.message || "Failed to sign in!");
+      };
 
-      // Foydalanuvchi muvaffaqiyatli ro‘yxatdan o‘tgandan so‘ng localStorage tozalash
-      localStorage.removeItem("name");
-      localStorage.removeItem("email");
-      localStorage.removeItem("password");
+      localStorage.setItem("loginConf", JSON.stringify(data));
+      console.log(data);
 
-      navigate("/login");
+      navigate("/home");
     } catch (err) {
-      setError(err.message || "Server xatosi");
+      setError(err.message || "Server is not responding!");
     } finally {
       setLoading(false);
     }
@@ -108,6 +93,7 @@ export default function Signin() {
                 setError("");
               }}
               disabled={loading}
+              minLength={8}
             />
             <button
               type="button"

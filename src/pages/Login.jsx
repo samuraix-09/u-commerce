@@ -2,86 +2,60 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
-export default function Login({ setStatus }) {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setError("");
-    setLoading(true);
-
-    if (!email || !password) {
-      setError("Iltimos, email va parolni kiriting");
-      setLoading(false);
-      return;
-    }
 
     try {
-      const res = await fetch(
-        `http://localhost:3000/users?email=${email}&password=${password}`
-      );
-      const users = await res.json();
-
-      if (users.length === 0) {
-        setError("Email yoki parol noto'g'ri. Ro'yxatdan o'ting!");
-        navigate("/signin");
-      } else {
-        const user = users[0];
-
-        localStorage.setItem("user", JSON.stringify(user));
-        localStorage.setItem("token", "dummy-token");
-
-        setStatus("entered");
-        navigate("/home");
-      }
-    } catch (err) {
-      setError(err.message || "Server xatosi");
-    } finally {
-      setLoading(false);
+      const res = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      if (!res.ok) {
+        setError("User is not found or server is not responding");
+        throw new Error("server not responding!")
+      };
+      const data = await res.json();
+      localStorage.setItem("loginConf", JSON.stringify(data));
+      navigate("/home");
+    } catch (error) {
+      alert(error.message);
     }
   }
 
   return (
     <div className="container login-container">
-      <div className="login-header">
-        <h2>Tizimga Kirish</h2>
-      </div>
-
-      <form onSubmit={handleSubmit} className="login-form">
-        {error && <div className="error-message">{error}</div>}
-
+      <h3 className="login-header">Log In</h3>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Email</label>
+          {error && <div className="error-message">{error}</div>}
+          <label style={{ color: "white" }}>Email</label>
           <input
-            type="email"
+            name="email"
             value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              setError("");
-            }}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@example.com"
+            type="email"
             required
-            disabled={loading}
           />
         </div>
-
         <div className="form-group">
-          <label>Parol</label>
+          <label style={{ color: "white" }}>Password</label>
           <div className="password-wrapper">
             <input
-              type={showPassword ? "text" : "password"}
+              name="password"
               value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-                setError("");
-              }}
+              onChange={(e) => setPassword(e.target.value)}
+              type={showPassword ? "text" : "password"}
+              placeholder="********"
               required
-              disabled={loading}
             />
             <button
               type="button"
@@ -92,16 +66,13 @@ export default function Login({ setStatus }) {
             </button>
           </div>
         </div>
-
-        <button type="submit" disabled={loading} className="submit-btn">
-          {loading ? "Kirilmoqda..." : "Tizimga Kirish"}
-        </button>
-
-        <div className="signup-link">
-          <span>Hisobingiz yo'qmi? </span>
-          <Link to="/signin">Ro'yxatdan o'ting</Link>
-        </div>
+        <button type="submit" className="submit-btn">Log In</button>
       </form>
+      <div className="signup-link">
+        <span style={{ marginRight: "15px" }}>Or create one</span>
+        <Link to="/signin">Sign In</Link>
+      </div>
     </div>
   );
 }
+

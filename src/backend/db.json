@@ -4,14 +4,21 @@
       "name": "Gaybullayev",
       "status": "admin",
       "password": "s1r0j1dd1n",
-      "login": "admin in panel"
+      "login": "admin in panel",
+      "id": "9578"
     },
     {
-      "id": 848516351512.2191,
+      "id": "848516351512.2191",
       "name": "sirojiddin",
       "email": "gaybullayevs176@gmail.com",
       "password": "s1r0j1dd1n",
       "status": "user"
+    },
+    {
+      "email": "axmedovaasira@gmail.com",
+      "password": "$2a$10$NV9eIUpWSs5RiNEAuS0vcehS6Hx9wW/7dmH7/FYzfHw0Y.vJbACly",
+      "name": "Test",
+      "id": "P2kRri_"
     }
   ],
   "product": []
