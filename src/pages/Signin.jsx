@@ -3,9 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Signin.css";
 
 export default function Signin() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState(localStorage.getItem("name") || "");
+  const [email, setEmail] = useState(localStorage.getItem("email") || "");
+  const [password, setPassword] = useState(localStorage.getItem("password") || "");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -18,34 +18,32 @@ export default function Signin() {
     setLoading(true);
 
     if (!name || !email || !password) {
-      setError("Iltimos, barcha maydonlarni to'ldiring");
+      setError("Iltimos, barcha maydonlarni to‘ldiring");
       setLoading(false);
       return;
     }
 
     try {
-      const res = await fetch("http://localhost:3000/users", {
+      const res = await fetch("http://localhost:5000/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          password,
-          name,
-          status: "user"
-        }),
+        body: JSON.stringify({ name, email, password , status:"user" , id:Math.random()*1000000000000}),
       });
-
+      
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.message || "Ro'yxatdan o'tish muvaffaqiyatsiz");
-        return;
+        throw new Error(data.message || "Ro‘yxatdan o‘tish muvaffaqiyatsiz");
       }
 
+      // Foydalanuvchi muvaffaqiyatli ro‘yxatdan o‘tgandan so‘ng localStorage tozalash
+      localStorage.removeItem("name");
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
 
-      navigate("/login");
+      navigate("/home");
     } catch (err) {
-      setError("Server xatosi");
+      setError(err.message || "Server xatosi");
     } finally {
       setLoading(false);
     }
@@ -88,6 +86,7 @@ export default function Signin() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               disabled={loading}
+              minLength={8}
             />
             <button
               type="button"

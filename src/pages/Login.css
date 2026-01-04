@@ -256,6 +256,7 @@
   .login-container {
     margin: 20px;
     padding: 30px 20px;
+    min-width: 400px;
   }
 
   .login-header h2 {
