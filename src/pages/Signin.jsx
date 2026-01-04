@@ -29,17 +29,15 @@ export default function Signin() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password , status:"user" , id:Math.random()*1000000000000}),
       });
-      
+
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message || "Ro‘yxatdan o‘tish muvaffaqiyatsiz");
-      }
+        throw new Error(data.message || "Failed to sign in!");
+      };
 
-      // Foydalanuvchi muvaffaqiyatli ro‘yxatdan o‘tgandan so‘ng localStorage tozalash
-      localStorage.removeItem("name");
-      localStorage.removeItem("email");
-      localStorage.removeItem("password");
+      localStorage.setItem("loginConf", JSON.stringify(data));
+      console.log(data);
 
       navigate("/home");
     } catch (err) {
@@ -52,14 +50,14 @@ export default function Signin() {
   return (
     <div className="container signin-container">
       <div className="signin-header">
-        <h2>Ro'yxatdan O'tish</h2>
+        <h2>Ro‘yxatdan O‘tish</h2>
       </div>
 
       <form onSubmit={handleSubmit} className="signin-form">
         {error && <div className="error-message">{error}</div>}
 
         <div className="form-group">
-          <label>Ism</label>
+          <label>Name</label>
           <input
             type="text"
             value={name}
@@ -79,7 +77,7 @@ export default function Signin() {
         </div>
 
         <div className="form-group">
-          <label>Parol</label>
+          <label>Password</label>
           <div className="password-wrapper">
             <input
               type={showPassword ? "text" : "password"}
@@ -103,8 +101,8 @@ export default function Signin() {
         </button>
 
         <div className="signin-link">
-          <span>Allaqachon hisobingiz bormi? </span>
-          <Link to="/login">Tizimga kirish</Link>
+          <span style={{marginRight: "15px"}}>Have an account?</span>
+          <Link to="/login">Log in</Link>
         </div>
       </form>
     </div>
