@@ -18,7 +18,7 @@ export default function Signin() {
     setLoading(true);
 
     if (!name || !email || !password) {
-      setError("Iltimos, barcha maydonlarni to‘ldiring");
+      setError("Please fill out all the fields given");
       setLoading(false);
       return;
     }
@@ -27,7 +27,7 @@ export default function Signin() {
       const res = await fetch("http://localhost:5000/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password , status:"user" , id:Math.random()*1000000000000}),
+        body: JSON.stringify({ name: name, email: email, password: password, status: "user", cart: [], saved: [], activities: [] }),
       });
 
       const data = await res.json();
@@ -37,11 +37,10 @@ export default function Signin() {
       };
 
       localStorage.setItem("loginConf", JSON.stringify(data));
-      console.log(data);
 
       navigate("/home");
     } catch (err) {
-      setError(err.message || "Server xatosi");
+      setError(err.message || "Error by server");
     } finally {
       setLoading(false);
     }
@@ -50,7 +49,7 @@ export default function Signin() {
   return (
     <div className="container signin-container">
       <div className="signin-header">
-        <h2>Ro‘yxatdan O‘tish</h2>
+        <h2>Sign In</h2>
       </div>
 
       <form onSubmit={handleSubmit} className="signin-form">
@@ -97,11 +96,11 @@ export default function Signin() {
         </div>
 
         <button type="submit" disabled={loading} className="submit-btn">
-          {loading ? "Yaratilmoqda..." : "Ro'yxatdan O'tish"}
+          {loading ? "Creating..." : "Sign In"}
         </button>
 
         <div className="signin-link">
-          <span style={{marginRight: "15px"}}>Have an account?</span>
+          <span style={{ marginRight: "15px" }}>Have an account?</span>
           <Link to="/login">Log in</Link>
         </div>
       </form>

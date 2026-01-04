@@ -1,8 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/EnterPage.css";
+import { useEffect } from "react";
 
 function EnterPage() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if(localStorage.getItem("loginConf")) navigate("/home")
+  }, []);
 
   return (
     <div className="enter">

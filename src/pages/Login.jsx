@@ -19,15 +19,13 @@ export default function Login() {
         body: JSON.stringify({ email, password }),
       });
       if (!res.ok) {
-        setError("User is not found or server is not responding");
+        setError("Incorrect email or password!");
         throw new Error("server not responding!")
       };
       const data = await res.json();
       localStorage.setItem("loginConf", JSON.stringify(data));
       navigate("/home");
-    } catch (error) {
-      alert(error.message);
-    }
+    } catch (error) {}
   }
 
   return (

@@ -1,18 +1,14 @@
 {
   "users": [
     {
-      "id": "4274",
-      "email": "test@gmail.com",
-      "password": "s1r0j",
-      "name": "siroj",
-      "status": "user"
-    },
-    {
-      "email": "test2@gmail.com",
-      "password": "$2a$10$IdIXChCvWn/f9eg8WUcVa.cOeBodWw5Q7x3N9/SEUxmL5nQKDFpCe",
-      "name": "Sirojiddin",
+      "email": "axmedovaasira1@gmail.com",
+      "password": "$2a$10$5KsRGJ2jEpha1R9vt6N5V.YVpNbw67/8Y9Sd6M8rXrUnk9nogvgJq",
+      "name": "Test",
       "status": "user",
-      "id": 752600712453.6941
+      "cart": [],
+      "saved": [],
+      "activities": [],
+      "id": 752600712455.6941
     }
   ],
   "products": [
@@ -23,8 +19,6 @@
       "description": "Oq va shirin olma, yangi yig‘ilgan",
       "inStock": true,
       "quantity": 20,
-      "saved": false,
-      "inCart": false,
       "status": "new"
     },
     {
@@ -34,8 +28,6 @@
       "description": "Yumshoq va shirin banan",
       "inStock": true,
       "quantity": 15,
-      "saved": true,
-      "inCart": false,
       "status": "active"
     },
     {
@@ -45,8 +37,6 @@
       "description": "Tabiiy sigir suti, 1L",
       "inStock": true,
       "quantity": 30,
-      "saved": false,
-      "inCart": true,
       "status": "active"
     },
     {
@@ -56,8 +46,6 @@
       "description": "Yangi pishgan non, kunlik",
       "inStock": true,
       "quantity": 50,
-      "saved": true,
-      "inCart": false,
       "status": "new"
     },
     {
@@ -67,8 +55,6 @@
       "description": "Yirik tuxum, 10 ta paketda",
       "inStock": true,
       "quantity": 40,
-      "saved": false,
-      "inCart": false,
       "status": "active"
     },
     {
@@ -78,8 +64,6 @@
       "description": "Oq shakar, 1kg",
       "inStock": true,
       "quantity": 25,
-      "saved": true,
-      "inCart": true,
       "status": "active"
     },
     {
@@ -89,8 +73,6 @@
       "description": "Qora choy, tabiiy aromat",
       "inStock": true,
       "quantity": 10,
-      "saved": false,
-      "inCart": false,
       "status": "active"
     },
     {
@@ -100,8 +82,6 @@
       "description": "Arabica kofesi, 250g",
       "inStock": true,
       "quantity": 8,
-      "saved": true,
-      "inCart": false,
       "status": "new"
     },
     {
@@ -111,8 +91,6 @@
       "description": "Zaytun yog‘i, 500ml",
       "inStock": false,
       "quantity": 0,
-      "saved": false,
-      "inCart": false,
       "status": "active"
     },
     {
@@ -122,8 +100,6 @@
       "description": "Oq guruch, 1kg",
       "inStock": true,
       "quantity": 60,
-      "saved": true,
-      "inCart": true,
       "status": "active"
     }
   ]

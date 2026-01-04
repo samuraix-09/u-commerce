@@ -13,6 +13,7 @@ import Account from './pages/Account'
 import PublicRoot from './PublicRoot'
 import ProtectedRoot from './ProtectedRoot'
 import ProtectedRoute from './ProtectedRoute'
+import CardDetails from './pages/CardDetails'
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +33,7 @@ function App() {
         { path: "/saved", element: <ProtectedRoute><Saved /></ProtectedRoute> },
         { path: "/cart", element: <ProtectedRoute><Cart /></ProtectedRoute> },
         { path: "/account", element: <ProtectedRoute><Account /></ProtectedRoute> },
+        { path: "/productDetails/:id", element: <ProtectedRoute><CardDetails /></ProtectedRoute>}
       ],
     },
     { path: "*", element: <Navigate to="/" /> },

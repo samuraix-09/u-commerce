@@ -9,6 +9,7 @@ function Cart() {
     async function cartelement() {
       const res = await fetch("http://localhost:3000/products");
       const data = await res.json();
+      console.log(data);
 
       const editData = data.filter(item => item.inCart === true);
       setCartProducts(editData);
@@ -19,7 +20,7 @@ function Cart() {
 
   return (
     <div className="cart-page">
-      <h1 className="cart-title">Korzinkangizga solgan narsalaringizni korishingiz mumkin!!</h1>
+      <h1 className="cart-title">Korzinkangizga solgan narsalaringizni ko'rishingiz mumkin!!</h1>
 
       {cartproducts.length === 0 && (
         <p className="cart-empty">Savat hozircha bo‘sh</p>

@@ -31,7 +31,7 @@ function Home() {
       <div className="product-list">
         {product.map((item) => (
           <Card name={item.name} description={item.description} 
-          price={item.price} quantity={item.quantity} inCart={item.inCart} inStock={item.inStock}
+          price={item.price} quantity={item.quantity} inCart={item.inCart} inStock={item.inStock} id={item.id}
           key={item.id}/>
         ))}
       </div>
