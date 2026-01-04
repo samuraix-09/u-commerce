@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Signin.css";
+import "../styles/Signin.css";
 
 export default function Signin() {
   const [name, setName] = useState(localStorage.getItem("name") || "");

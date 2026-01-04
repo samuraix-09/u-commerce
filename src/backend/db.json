@@ -6,7 +6,125 @@
       "password": "s1r0j",
       "name": "siroj",
       "status": "user"
+    },
+    {
+      "email": "test2@gmail.com",
+      "password": "$2a$10$IdIXChCvWn/f9eg8WUcVa.cOeBodWw5Q7x3N9/SEUxmL5nQKDFpCe",
+      "name": "Sirojiddin",
+      "status": "user",
+      "id": 752600712453.6941
     }
   ],
-  "product": []
+  "products": [
+    {
+      "id": 1,
+      "name": "Olma",
+      "price": 5000,
+      "description": "Oq va shirin olma, yangi yig‘ilgan",
+      "inStock": true,
+      "quantity": 20,
+      "saved": false,
+      "inCart": false,
+      "status": "new"
+    },
+    {
+      "id": 2,
+      "name": "Banan",
+      "price": 7000,
+      "description": "Yumshoq va shirin banan",
+      "inStock": true,
+      "quantity": 15,
+      "saved": true,
+      "inCart": false,
+      "status": "active"
+    },
+    {
+      "id": 3,
+      "name": "Sut",
+      "price": 12000,
+      "description": "Tabiiy sigir suti, 1L",
+      "inStock": true,
+      "quantity": 30,
+      "saved": false,
+      "inCart": true,
+      "status": "active"
+    },
+    {
+      "id": 4,
+      "name": "Non",
+      "price": 2500,
+      "description": "Yangi pishgan non, kunlik",
+      "inStock": true,
+      "quantity": 50,
+      "saved": true,
+      "inCart": false,
+      "status": "new"
+    },
+    {
+      "id": 5,
+      "name": "Tuxum",
+      "price": 15000,
+      "description": "Yirik tuxum, 10 ta paketda",
+      "inStock": true,
+      "quantity": 40,
+      "saved": false,
+      "inCart": false,
+      "status": "active"
+    },
+    {
+      "id": 6,
+      "name": "Shakar",
+      "price": 8000,
+      "description": "Oq shakar, 1kg",
+      "inStock": true,
+      "quantity": 25,
+      "saved": true,
+      "inCart": true,
+      "status": "active"
+    },
+    {
+      "id": 7,
+      "name": "Choy",
+      "price": 22000,
+      "description": "Qora choy, tabiiy aromat",
+      "inStock": true,
+      "quantity": 10,
+      "saved": false,
+      "inCart": false,
+      "status": "active"
+    },
+    {
+      "id": 8,
+      "name": "Kofe",
+      "price": 35000,
+      "description": "Arabica kofesi, 250g",
+      "inStock": true,
+      "quantity": 8,
+      "saved": true,
+      "inCart": false,
+      "status": "new"
+    },
+    {
+      "id": 9,
+      "name": "Yog'",
+      "price": 18000,
+      "description": "Zaytun yog‘i, 500ml",
+      "inStock": false,
+      "quantity": 0,
+      "saved": false,
+      "inCart": false,
+      "status": "active"
+    },
+    {
+      "id": 10,
+      "name": "Guruch",
+      "price": 12000,
+      "description": "Oq guruch, 1kg",
+      "inStock": true,
+      "quantity": 60,
+      "saved": true,
+      "inCart": true,
+      "status": "active"
+    }
+  ]
 }

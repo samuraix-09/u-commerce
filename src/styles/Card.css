@@ -1,0 +1,87 @@
+/* Card asos */
+.ok,
+.false {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+/* Hover */
+.ok:hover,
+.false:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Stock border */
+.ok {
+  border-top: 6px solid #2e7d32;
+}
+
+.false {
+  border-top: 6px solid #c62828;
+  opacity: 0.85;
+}
+
+/* Sarlavha */
+.ok h1,
+.false h1 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+/* Tavsif */
+.ok p,
+.false p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* Narx */
+.ok h3,
+.false h3 {
+  margin: 12px 0 4px;
+  color: #0d47a1;
+}
+
+/* Quantity */
+.ok h5,
+.false h5 {
+  font-weight: normal;
+  color: #666;
+  margin-bottom: 14px;
+}
+
+/* Tugma */
+.ok button,
+.false button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* Bor mahsulot */
+.ok button {
+  background: linear-gradient(135deg, #1976d2, #0d47a1);
+  color: #fff;
+}
+
+.ok button:hover {
+  background: linear-gradient(135deg, #1565c0, #0b3c91);
+}
+
+/* Yo‘q mahsulot */
+.false button {
+  background: #bdbdbd;
+  color: #fff;
+  cursor: not-allowed;
+}

@@ -6,7 +6,7 @@ import {
   FaShoppingCart, 
   FaUser 
 } from "react-icons/fa";
-import "./Footer.css";
+import "../styles/Footer.css";
 
 export default function Footer() {
   const location = useLocation();

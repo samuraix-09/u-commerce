@@ -1,0 +1,25 @@
+.cart-page {
+  min-height: 100vh;
+  padding: 24px;
+  background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.cart-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #1a237e;
+}
+
+.cart-empty {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 18px;
+  color: #777;
+}
+
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
