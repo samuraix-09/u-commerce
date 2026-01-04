@@ -1,29 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Signin.css";
 
 export default function Signin() {
-  const [name, setName] = useState(localStorage.getItem("name") || "");
-  const [email, setEmail] = useState(localStorage.getItem("email") || "");
-  const [password, setPassword] = useState(localStorage.getItem("password") || "");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-
-  // Har bir input o‘zgarishini localStorage ga saqlaymiz
-  useEffect(() => {
-    localStorage.setItem("name", name);
-  }, [name]);
-
-  useEffect(() => {
-    localStorage.setItem("email", email);
-  }, [email]);
-
-  useEffect(() => {
-    localStorage.setItem("password", password);
-  }, [password]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -31,7 +18,7 @@ export default function Signin() {
     setLoading(true);
 
     if (!name || !email || !password) {
-      setError("Iltimos, barcha maydonlarni to‘ldiring");
+      setError("Iltimos, barcha maydonlarni to'ldiring");
       setLoading(false);
       return;
     }
@@ -40,23 +27,25 @@ export default function Signin() {
       const res = await fetch("http://localhost:3000/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password , status:"user" , id:Math.random()*1000000000000}),
+        body: JSON.stringify({
+          email,
+          password,
+          name,
+          status: "user"
+        }),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message || "Ro‘yxatdan o‘tish muvaffaqiyatsiz");
+        setError(data.message || "Ro'yxatdan o'tish muvaffaqiyatsiz");
+        return;
       }
 
-      // Foydalanuvchi muvaffaqiyatli ro‘yxatdan o‘tgandan so‘ng localStorage tozalash
-      localStorage.removeItem("name");
-      localStorage.removeItem("email");
-      localStorage.removeItem("password");
 
       navigate("/login");
     } catch (err) {
-      setError(err.message || "Server xatosi");
+      setError("Server xatosi");
     } finally {
       setLoading(false);
     }
@@ -65,7 +54,7 @@ export default function Signin() {
   return (
     <div className="container signin-container">
       <div className="signin-header">
-        <h2>Ro‘yxatdan O‘tish</h2>
+        <h2>Ro'yxatdan O'tish</h2>
       </div>
 
       <form onSubmit={handleSubmit} className="signin-form">
@@ -76,10 +65,7 @@ export default function Signin() {
           <input
             type="text"
             value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-              setError("");
-            }}
+            onChange={(e) => setName(e.target.value)}
             disabled={loading}
           />
         </div>
@@ -89,10 +75,7 @@ export default function Signin() {
           <input
             type="email"
             value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              setError("");
-            }}
+            onChange={(e) => setEmail(e.target.value)}
             disabled={loading}
           />
         </div>
@@ -103,10 +86,7 @@ export default function Signin() {
             <input
               type={showPassword ? "text" : "password"}
               value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-                setError("");
-              }}
+              onChange={(e) => setPassword(e.target.value)}
               disabled={loading}
             />
             <button
@@ -120,7 +100,7 @@ export default function Signin() {
         </div>
 
         <button type="submit" disabled={loading} className="submit-btn">
-          {loading ? "Yaratilmoqda..." : "Ro‘yxatdan O‘tish"}
+          {loading ? "Yaratilmoqda..." : "Ro'yxatdan O'tish"}
         </button>
 
         <div className="signin-link">
