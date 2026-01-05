@@ -9,7 +9,6 @@ function Cart() {
     async function cartelement() {
       const res = await fetch("http://localhost:3000/products");
       const data = await res.json();
-      console.log(data);
 
       const editData = data.filter(item => item.inCart === true);
       setCartProducts(editData);
