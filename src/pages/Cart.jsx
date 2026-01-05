@@ -1,28 +1,31 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import "../styles/Cart.css";
+import { getMethod } from "../utils/cartSavedInteractions";
 
 function Cart() {
   const [cartproducts, setCartProducts] = useState([]);
 
   useEffect(() => {
-    async function cartelement() {
-      const res = await fetch("http://localhost:3000/products");
-      const data = await res.json();
+    const fetchCart = async () => {
+      const data = await getMethod(
+        JSON.parse(localStorage.getItem("loginConf")).user.id,
+        "cart"
+      );
+      setCartProducts(data);
+    };
 
-      const editData = data.filter(item => item.inCart === true);
-      setCartProducts(editData);
-    }
-
-    cartelement();
+    fetchCart();
   }, []);
+
+  
 
   return (
     <div className="cart-page">
-      <h1 className="cart-title">Korzinkangizga solgan narsalaringizni ko'rishingiz mumkin!!</h1>
+      <h1 className="cart-title">There appears the products you added to your cart</h1>
 
       {cartproducts.length === 0 && (
-        <p className="cart-empty">Savat hozircha bo‘sh</p>
+        <p className="cart-empty">Cart is empty, for now.</p>
       )}
 
       <div className="cart-grid">
@@ -35,6 +38,7 @@ function Cart() {
             quantity={item.quantity}
             inCart={item.inCart}
             inStock={item.inStock}
+            id={item.id}
           />
         ))}
       </div>

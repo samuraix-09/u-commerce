@@ -5,8 +5,15 @@
       "password": "$2a$10$5KsRGJ2jEpha1R9vt6N5V.YVpNbw67/8Y9Sd6M8rXrUnk9nogvgJq",
       "name": "Test",
       "status": "user",
-      "cart": [],
-      "saved": [],
+      "cart": [
+        11,
+        3,
+        2
+      ],
+      "saved": [
+        2,
+        3
+      ],
       "activities": [],
       "id": 752600712455.6941
     }

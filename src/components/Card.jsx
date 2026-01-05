@@ -11,7 +11,15 @@ function Card({ name, description, price, quantity, inStock, id }) {
       "cart",
       id
     );
-  }
+  };
+
+  function addToSaved(id) {
+    addMethod(
+      JSON.parse(localStorage.getItem("loginConf")).user.id,
+      "saved",
+      id
+    );
+  };
 
   return (
     <div className={`product-card ${!inStock ? "disabled" : ""}`}>
@@ -28,8 +36,11 @@ function Card({ name, description, price, quantity, inStock, id }) {
       <button className="product-btn" onClick={() => addToCart(id)}>
         Add to cart
       </button>
+      <button className="product-btn" onClick={() => addToSaved(id)}>
+        Add to saved
+      </button>
     </div>
   );
-}
+};
 
 export default Card;
