@@ -3,22 +3,46 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
 import Card from "../components/Card";
 import AddCard from "../components/AddCard";
+import { FaArrowDown, FaChevronDown } from "react-icons/fa";
 
 function Home() {
   const [product, setProduct] = useState([]);
   const [newProduct, setNewProduct] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    async function productCaller() {
-      const res = await fetch("http://localhost:3000/products");
-      const data = await res.json();
+  const [page, setPage] = useState(1);
+  const limit = 25;
 
-      setProduct(data.filter(x => x.status === "active"));
-      setNewProduct(data.filter(x => x.status === "new"));
-    }
-    productCaller();
+  // fetch function
+  const fetchProducts = async (page) => {
+    const res = await fetch(`http://localhost:3000/products?_page=${page}&_limit=${limit}`);
+    const data = await res.json();
+    return data;
+  };
+
+  // initial load
+  useEffect(() => {
+    fetchProducts(page).then((data) => setProduct(data));
   }, []);
+
+  useEffect(() => {
+    (async function () {
+      const res = await fetch(`http://localhost:3000/products?status=new`);
+      const data = await res.json();
+      setNewProduct(data);
+    })()
+  }, []);
+
+  // load more
+  const loadMore = async () => {
+    const nextPage = page + 1;
+    const data = await fetchProducts(nextPage);
+    if (data.length > 0) {
+      setProduct((prev) => [...prev, ...data]);
+      setPage(nextPage);
+    }
+  };
+
   useEffect(() => {
     const track = document.querySelector(".hero-track");
     const slides = document.querySelectorAll(".hero-slide");
@@ -75,18 +99,21 @@ function Home() {
 
         <button className="hero-btn right">›</button>
       </div>
-      <div className="product-list">
-        {product.map(item => (
-          <Card
-            key={item.id}
-            name={item.name}
-            description={item.description}
-            price={item.price}
-            quantity={item.quantity}
-            inStock={item.inStock}
-            id={item.id}
-          />
-        ))}
+      <div className="product-list-outer">
+        <div className="product-list">
+          {product.map(item => (
+            <Card
+              key={item.id}
+              name={item.name}
+              description={item.description}
+              price={item.price}
+              quantity={item.quantity}
+              inStock={item.inStock}
+              id={item.id}
+            />
+          ))}
+        </div>
+        <button onClick={loadMore}>Load More <FaChevronDown /></button> {/* style qo'shish kerak */}
       </div>
     </div>
   );

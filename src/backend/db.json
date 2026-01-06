@@ -16,6 +16,42 @@
       ],
       "activities": [],
       "id": 752600712455.6941
+    },
+    {
+      "email": "axmedovaasira@gmail.com",
+      "password": "$2a$10$UCN32FHzM/nclJsJJC8t2uQdwv.7OIDkweG4GFSQ7uqEHlzTsE/Ri",
+      "name": "Akobir",
+      "status": "user",
+      "cart": [],
+      "saved": [],
+      "activities": [],
+      "id": 752600712456.6941
+    },
+    {
+      "email": "axmedovaasira123@gmail.com",
+      "password": "$2a$10$zIChVlro1x94fg/9ATHZ2OdQ.Ni64jdy4Y07bRiTtgrkPbl81xgD6",
+      "name": "TestFinal",
+      "status": "user",
+      "cart": [],
+      "saved": [],
+      "activities": [],
+      "id": 752600712457.6941
+    },
+    {
+      "email": "axmedovaasira1234@gmail.com",
+      "password": "$2a$10$/nee9Dez3ye7TIDWXKr78Ofy5gft5Uh68zTtw8nqt83y1/rfT6DyK",
+      "name": "Akobir",
+      "status": "user",
+      "cart": [
+        2,
+        5,
+        7
+      ],
+      "saved": [
+        2
+      ],
+      "activities": [],
+      "id": 752600712458.6941
     }
   ],
   "products": [
