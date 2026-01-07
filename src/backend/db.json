@@ -42,14 +42,8 @@
       "password": "$2a$10$/nee9Dez3ye7TIDWXKr78Ofy5gft5Uh68zTtw8nqt83y1/rfT6DyK",
       "name": "Akobir",
       "status": "user",
-      "cart": [
-        2,
-        5,
-        7
-      ],
-      "saved": [
-        2
-      ],
+      "cart": [],
+      "saved": [],
       "activities": [],
       "id": 752600712458.6941
     },
@@ -58,14 +52,8 @@
       "password": "$2a$10$kKQ.oSa9occvAToHJKMTxOjjyW29zhq9.j5sYKZzoazVyrQ8w5TI6",
       "name": "Sirojiddin Gaybullayev",
       "status": "user",
-      "cart": [
-        1
-      ],
-      "saved": [
-        1,
-        3,
-        2
-      ],
+      "cart": [],
+      "saved": [],
       "activities": [],
       "id": 752600712459.6941
     }

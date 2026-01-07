@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "../styles/CardDetails.css"
 
 export default function CardDetails() {
     const { id } = useParams();
