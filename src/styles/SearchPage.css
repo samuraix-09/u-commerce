@@ -1,0 +1,57 @@
+/* ===== SEARCH PAGE WRAPPER ===== */
+.search-page {
+  margin-top: 90px; /* fixed header uchun joy */
+  padding: 24px;
+  min-height: calc(100vh - 90px);
+  background: #f9fafb;
+}
+
+/* ===== RESULTS GRID ===== */
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+/* ===== EMPTY STATE ===== */
+.search-results p {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 16px;
+  color: #6b7280;
+  padding: 40px 0;
+}
+
+/* ===== LOADING / INFO TEXT ===== */
+.search-info {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #374151;
+}
+
+/* ===== CARD OVERRIDE (optional) ===== */
+.search-results .card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.search-results .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .search-page {
+    padding: 16px;
+  }
+
+  .search-results {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-page {
+    padding: 12px;
+  }
+}

@@ -44,3 +44,59 @@
   opacity: 0.5;
   pointer-events: none;
 }
+.product-card {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.heart-icon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 22px;
+  color: #ccc; /* bosilmagan */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.heart-icon:hover {
+  transform: scale(1.2);
+}
+
+.heart-icon.liked {
+  color: red; /* bosilgan */
+}
+
+.product-body h1 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.product-body p {
+  font-size: 14px;
+  color: #555;
+}
+
+.product-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.product-btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}

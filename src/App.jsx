@@ -6,7 +6,7 @@ import EnterPage from './pages/EnterPage'
 import Login from './pages/Login'
 import SignIn from './pages/Signin'
 import Home from './pages/Home'
-import Search from './pages/Search'
+import Search from './pages/SearchPage'
 import Saved from './pages/Saved'
 import Cart from './pages/Cart'
 import Account from './pages/Account'
@@ -14,6 +14,7 @@ import PublicRoot from './PublicRoot'
 import ProtectedRoot from './ProtectedRoot'
 import ProtectedRoute from './ProtectedRoute'
 import CardDetails from './pages/CardDetails'
+import SearchPage from './pages/SearchPage'
 
 function App() {
   const router = createBrowserRouter([
@@ -29,7 +30,7 @@ function App() {
       element: <ProtectedRoot />,
       children: [
         { path: "/home", element: <ProtectedRoute><Home /></ProtectedRoute> },
-        { path: "/search", element: <ProtectedRoute><Search /></ProtectedRoute> },
+        { path: "/search", element: <ProtectedRoute><SearchPage/></ProtectedRoute> },
         { path: "/saved", element: <ProtectedRoute><Saved /></ProtectedRoute> },
         { path: "/cart", element: <ProtectedRoute><Cart /></ProtectedRoute> },
         { path: "/account", element: <ProtectedRoute><Account /></ProtectedRoute> },

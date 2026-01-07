@@ -72,14 +72,10 @@ function Home() {
     return () => clearInterval(interval);
   }, [newProduct]);
 
-  function logout() {
-    localStorage.clear();
-    navigate("/login");
-  }
+  
 
   return (
     <div className="home">
-      <button className="logout-btn" onClick={logout}>Logout</button>
       <div className="hero-slider">
         <button className="hero-btn left">‹</button>
 

@@ -1,0 +1,128 @@
+/* ===== HEADER MAIN ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* ===== HIDDEN STATE ===== */
+.header--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* ===== LEFT ===== */
+.header__left {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  height: 38px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.header__logo:hover {
+  transform: scale(1.05);
+}
+
+/* ===== CENTER ===== */
+.header__center {
+  flex: 1;
+  max-width: 520px;
+  margin: 0 24px;
+}
+
+/* ===== RIGHT ===== */
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ===== SHARED UI STYLE ===== */
+.header__filter,
+.search__input {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #2e2c2c;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+.header__filter:hover,
+.search__input:hover {
+  border-color: #0077ff;
+}
+
+/* Focus */
+.header__filter:focus,
+.search__input:focus {
+  border-color: #0077ff;
+  box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.18);
+}
+
+/* ===== SEARCH CONTAINER ===== */
+.search {
+  width: 100%;
+  position: relative;
+}
+
+/* Input */
+.search__input {
+  width: 100%;
+  padding-left: 16px;
+}
+
+/* Placeholder */
+.search__input::placeholder {
+  color: #9aa4b2;
+  font-size: 13px;
+}
+
+/* ===== FILTER SELECT ONLY ===== */
+.header__filter {
+  cursor: pointer;
+  min-width: 140px;
+}
+
+/* Arrow style (modern look) */
+.header__filter {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%239AA4B2' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px;
+  padding-right: 36px;
+}
+
+/* ===== ACTIVE ANIMATION ===== */
+.search__input:active,
+.header__filter:active {
+  transform: scale(0.98);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .header__filter,
+  .search__input {
+    height: 36px;
+    font-size: 13px;
+    padding: 0 12px;
+  }
+}

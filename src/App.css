@@ -8,7 +8,7 @@
 /* REACT DEFAULT CENTER NI O‘CHIRAMIZ */
 html, body, #root {
   width: 100%;
-  height: auto;
+  min-height: 130vh;
 }
 
 /* BODY */

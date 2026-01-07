@@ -1,28 +1,39 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/Card.css";
 import addMethod from "../utils/cartSavedInteractions";
+import { FaHeart } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 function Card({ name, description, price, quantity, inStock, id }) {
   const navigate = useNavigate();
+  const userId = JSON.parse(localStorage.getItem("loginConf"))?.user?.id;
+
+  const [liked, setLiked] = useState(false);
+
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("saved")) || [];
+    setLiked(saved.includes(id));
+  }, [id]);
 
   function addToCart(id) {
-    addMethod(
-      JSON.parse(localStorage.getItem("loginConf")).user.id,
-      "cart",
-      id
-    );
-  };
+    addMethod(userId, "cart", id);
+  }
 
-  function addToSaved(id) {
-    addMethod(
-      JSON.parse(localStorage.getItem("loginConf")).user.id,
-      "saved",
-      id
-    );
-  };
+  function toggleSaved(e) {
+    e.stopPropagation();
+
+    addMethod(userId, "saved", id);
+    setLiked(prev => !prev);
+  }
 
   return (
     <div className={`product-card ${!inStock ? "disabled" : ""}`}>
+      
+      <FaHeart
+        className={`heart-icon ${liked ? "liked" : ""}`}
+        onClick={toggleSaved}
+      />
+
       <div
         className="product-body"
         onClick={() => navigate(`/productDetails/${id}`)}
@@ -33,14 +44,15 @@ function Card({ name, description, price, quantity, inStock, id }) {
         <h5>{quantity} dona mavjud</h5>
       </div>
 
-      <button className="product-btn" onClick={() => addToCart(id)}>
+      <button
+        className="product-btn"
+        onClick={() => addToCart(id)}
+        disabled={!inStock}
+      >
         Add to cart
-      </button>
-      <button className="product-btn" onClick={() => addToSaved(id)}>
-        Add to saved
       </button>
     </div>
   );
-};
+}
 
 export default Card;
