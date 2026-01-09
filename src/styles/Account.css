@@ -1,0 +1,286 @@
+.account-page {
+    min-height: 120px;
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+/* SECTION */
+.account-section {
+  background: #fff;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+/* ITEM */
+.account-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: #222;
+  font-size: 15px;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+.account-item:last-child {
+  border-bottom: none;
+}
+
+.account-item:hover {
+  background: #f5f7ff;
+}
+
+/* ICON */
+.icon {
+  font-size: 18px;
+  color: #5a67d8;
+}
+
+/* LOGOUT */
+.logout-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #ff4d4f;
+  color: white;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background: #e6393b;
+}
+/* ROOT */
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #5a67d8;
+  --danger: #ff4d4f;
+  --hover: #f1f3ff;
+  --border: #e5e7eb;
+}
+
+/* DARK MODE AUTO */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --hover: #2a3558;
+    --border: #334155;
+  }
+}
+
+body {
+  background: var(--bg);
+}
+
+/* PAGE */
+.account-page {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 16px;
+  font-family: "Inter", system-ui, sans-serif;
+  animation: fadeIn 0.5s ease;
+}
+
+/* SECTION */
+.account-section {
+  background: var(--card);
+  border-radius: 16px;
+  margin-bottom: 22px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+/* DIVIDER EFFECT */
+.account-section::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+  opacity: 0.15;
+}
+
+/* ITEM */
+.account-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 15px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.25s ease, transform 0.2s ease;
+  position: relative;
+}
+
+.account-item:last-child {
+  border-bottom: none;
+}
+
+/* HOVER EFFECT */
+.account-item:hover {
+  background: var(--hover);
+  transform: translateX(4px);
+}
+
+/* ICON */
+.icon {
+  font-size: 18px;
+  color: var(--primary);
+  transition: transform 0.25s ease;
+}
+
+.account-item:hover .icon {
+  transform: scale(1.15) rotate(-3deg);
+}
+
+/* TEXT */
+.account-item span {
+  flex: 1;
+}
+
+/* ARROW INDICATOR */
+.account-item::after {
+  content: "›";
+  font-size: 18px;
+  color: var(--muted);
+  transition: transform 0.2s;
+}
+
+.account-item:hover::after {
+  transform: translateX(4px);
+}
+
+/* LOGOUT */
+.logout-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 14px;
+  border: none;
+  background: var(--danger);
+  color: white;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 20px rgba(255,77,79,0.3);
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(255,77,79,0.4);
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .account-page {
+    margin: 20px auto;
+    padding: 12px;
+  }
+
+  .account-item {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* PROFILE CARD */
+.profile-card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  margin-bottom: 22px;
+}
+
+.profile-card img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+}
+
+.profile-card h3 {
+  margin: 0;
+  font-size: 17px;
+  color: var(--text);
+}
+
+.profile-card p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------------- SKELETON ---------------- */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #f3f4f6 37%,
+    #e5e7eb 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 14px;
+  margin-bottom: 18px;
+}
+
+.skeleton.profile {
+  height: 90px;
+}
+
+.skeleton.card {
+  height: 140px;
+}
+
+.skeleton.button {
+  height: 50px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}

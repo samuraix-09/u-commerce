@@ -40,11 +40,6 @@ function Header() {
     };
   }, []);
 
-  const logout = () => {
-    localStorage.clear();
-    navigate("/login");
-  };
-
   return (
     <header className={`header ${hidden ? "header--hidden" : ""}`}>
       <div className="header__left">
@@ -69,10 +64,6 @@ function Header() {
           <option value="6">Drink</option>
           <option value="7">Ice drink</option>
         </select>
-
-        <button className="logout-btn" onClick={logout}>
-          Logout
-        </button>
       </div>
     </header>
   );

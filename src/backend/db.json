@@ -52,8 +52,13 @@
       "password": "$2a$10$kKQ.oSa9occvAToHJKMTxOjjyW29zhq9.j5sYKZzoazVyrQ8w5TI6",
       "name": "Sirojiddin Gaybullayev",
       "status": "user",
-      "cart": [],
-      "saved": [],
+      "cart": [
+        1
+      ],
+      "saved": [
+        19,
+        1
+      ],
       "activities": [],
       "id": 752600712459.6941
     }
