@@ -1,4 +1,4 @@
-/* ===== HEADER MAIN ===== */
+/* ===== HEADER ===== */
 .header {
   position: fixed;
   top: 0;
@@ -11,150 +11,103 @@
   justify-content: space-between;
   padding: 0 24px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  z-index: 1000;
+  z-index: 1000; /* boshqa elementlar ustida turishi uchun */
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-/* ===== HIDDEN STATE ===== */
+/* HIDDEN STATE */
 .header--hidden {
   transform: translateY(-100%);
   opacity: 0;
 }
 
-/* ===== LEFT ===== */
+/* LEFT */
 .header__left {
   display: flex;
   align-items: center;
 }
-
 .header__logo {
   height: 38px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
 .header__logo:hover {
   transform: scale(1.05);
 }
 
-/* ===== CENTER ===== */
+/* CENTER */
 .header__center {
   flex: 1;
   max-width: 520px;
   margin: 0 24px;
 }
 
-/* ===== RIGHT ===== */
-.header__right {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-/* ===== SHARED UI STYLE ===== */
-.header__filter,
-.search__input {
-  height: 40px;
-  padding: 0 14px;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  background: #2e2c2c;
-  font-size: 14px;
-  outline: none;
-  transition: all 0.25s ease;
-}
-
-/* Hover */
-.header__filter:hover,
-.search__input:hover {
-  border-color: #0077ff;
-}
-
-/* Focus */
-.header__filter:focus,
-.search__input:focus {
-  border-color: #0077ff;
-  box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.18);
-}
-
-/* ===== SEARCH CONTAINER ===== */
-.search {
-  width: 100%;
-  position: relative;
-}
-
-/* Input */
-.search__input {
-  width: 100%;
-  padding-left: 16px;
-}
-
-/* Placeholder */
-.search__input::placeholder {
-  color: #9aa4b2;
-  font-size: 13px;
-}
-
+/* RIGHT */
 .header__right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* SELECT */
-.header__filter {
-  appearance: none;          /* default arrowni olib tashlaydi */
-  -webkit-appearance: none;
-  -moz-appearance: none;
+/* SEARCH INPUT */
+.search__input {
+  width: 100%;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.25s ease;
+}
+.search__input:focus {
+  border-color: #0077ff;
+  box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.18);
+}
+.search__input::placeholder {
+  color: #9aa4b2;
+  font-size: 13px;
+}
 
+/* SELECT FILTER */
+.header__filter {
+  appearance: none;
   padding: 10px 42px 10px 14px;
   min-width: 180px;
-
   font-size: 15px;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
-
   color: #333;
   background-color: #fff;
-
   border: 1px solid #e5e7eb;
   border-radius: 10px;
-
   cursor: pointer;
   outline: none;
-
   transition: all 0.25s ease;
-
 }
-
-/* hover */
 .header__filter:hover {
   border-color: #c7c7c7;
   background-color: #fafafa;
 }
-
-/* focus */
 .header__filter:focus {
   border-color: #4f46e5;
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
 }
-
-/* option */
 .header__filter option {
   font-size: 14px;
   padding: 10px;
 }
 
-/* ===== ACTIVE ANIMATION ===== */
+/* ACTIVE ANIMATION */
 .search__input:active,
 .header__filter:active {
   transform: scale(0.98);
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media (max-width: 768px) {
-  .header__filter,
-  .search__input {
+  .search__input,
+  .header__filter {
     height: 36px;
     font-size: 13px;
     padding: 0 12px;

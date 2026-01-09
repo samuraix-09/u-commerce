@@ -1,23 +1,17 @@
 /* ===============================
-   UMUMIY SAHIFA - Yangi dizayn
+   HOME PAGE
 ================================ */
 .home {
-  padding: 0;
+  padding-top: 72px; /* HEADER BALANDLIGI */
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 133vh;
+  min-height: 100vh; /* full screen */
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* ===============================
-   LOGOUT TUGMA
-================================ */
-
-
-/* ===============================
-   HERO KARUSEL - Yangi dizayn
-================================ */
+/* HERO SLIDER */
 .hero-slider {
-  top: 45px;
   position: relative;
   width: 100%;
   height: 400px;
@@ -32,14 +26,14 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+  background: linear-gradient(to left, rgba(0,0,0,0.7) 0%, transparent 50%);
   z-index: 2;
 }
 
 .hero-track {
   display: flex;
   height: 100%;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.8s cubic-bezier(0.4,0,0.2,1);
 }
 
 .hero-slide {
@@ -54,48 +48,30 @@
   position: relative;
 }
 
-.hero-slide:nth-child(1) {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.hero-slide:nth-child(2) {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
-.hero-slide:nth-child(3) {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
-
+/* HERO CONTENT */
 .hero-content {
   position: relative;
   z-index: 3;
   max-width: 600px;
+  color: #fff;
 }
-
 .hero-content h1 {
   font-size: 64px;
   font-weight: 800;
-  color: #fff;
   margin: 0;
   line-height: 1.1;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-  letter-spacing: -1px;
 }
-
 .hero-content p {
   font-size: 20px;
   margin: 20px 0 30px;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.6;
 }
-
 .hero-content h3 {
   font-size: 44px;
   font-weight: 700;
-  color: #fff;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  margin: 0;
 }
 
+/* HERO BUTTON */
 .hero-btn {
   position: absolute;
   top: 50%;
@@ -104,325 +80,58 @@
   height: 56px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255,255,255,0.2);
   backdrop-filter: blur(10px);
   color: #fff;
   font-size: 24px;
   cursor: pointer;
   z-index: 10;
-  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
+.hero-btn.left { left: 30px; }
+.hero-btn.right { right: 30px; }
+.hero-btn:hover { transform: translateY(-50%) scale(1.1); }
 
-.hero-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.hero-btn.left {
-  left: 30px;
-}
-
-.hero-btn.right {
-  right: 30px;
-}
-
-/* ===============================
-   ASOSIY KONTENT
-================================ */
-.content-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* ===============================
-   PRODUCT GRID
-================================ */
-.product-list-outer {
-  padding: 0px 5px 100px 5px;
-}
-
+/* PRODUCT GRID */
 .product-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 25px;
-  padding-bottom: 15px;
+  padding: 20px;
 }
 
-/* ===============================
-   PRODUCT CARD - Yangi dizayn
-================================ */
+/* PRODUCT CARD */
 .product-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.95);
   border-radius: 24px;
   padding: 25px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  overflow: hidden;
-  position: relative;
-}
-
-.product-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-}
-
-.product-card:hover::before {
-  transform: scaleX(1);
-}
-
-.product-image {
-  width: 100%;
-  height: 200px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 16px;
-  margin-bottom: 20px;
-  overflow: hidden;
-}
-
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.product-body h1 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #2d3748;
-  font-weight: 700;
-}
-
-.product-body p {
-  font-size: 15px;
-  margin: 8px 0;
-  color: #4a5568;
-  line-height: 1.5;
-}
-
-.product-body h3 {
-  margin-top: 12px;
-  color: #2ecc71;
-  font-weight: 800;
-  font-size: 24px;
-}
-
-.product-body h5 {
-  font-size: 14px;
-  color: #718096;
-  font-weight: 500;
-  margin-top: 5px;
-}
-
-/* Add to cart tugma */
-.product-btn {
-  width: 100%;
-  padding: 16px;
-  margin-top: 20px;
-  border-radius: 14px;
-  border: none;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
 }
+.product-card:hover { transform: translateY(-10px); }
 
-.product-btn::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  border-radius: 100%;
-  transform: scale(1, 1) translate(-50%);
-  transform-origin: 50% 50%;
-}
-
-.product-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-}
-
-.product-btn:hover::after {
-  animation: ripple 1s ease-out;
-}
-
-@keyframes ripple {
-  0% {
-    transform: scale(0, 0);
-    opacity: 0.5;
-  }
-
-  100% {
-    transform: scale(20, 20);
-    opacity: 0;
-  }
-}
-
-/* ===============================
-   STOCK HOLATI
-================================ */
-.product-card.disabled {
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.product-card.disabled .product-btn {
-  background: linear-gradient(135deg, #a0aec0 0%, #718096 100%);
-}
-
-.product-card.disabled::before {
-  background: #a0aec0;
-}
-
-/* ===============================
-   ANIMATSIYALAR
-================================ */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.product-card {
-  animation: fadeIn 0.6s ease-out forwards;
-  opacity: 0;
-}
-
-.product-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.product-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.product-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.product-card:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.product-card:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-/* ===============================
-   RESPONSIVE
-================================ */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
-  .hero-slider {
-    height: 350px;
-  }
-
-  .hero-content h1 {
-    font-size: 48px;
-  }
-
-  .hero-content p {
-    font-size: 18px;
-  }
-
-  .hero-content h3 {
-    font-size: 36px;
-  }
+  .hero-slider { height: 350px; }
+  .hero-content h1 { font-size: 48px; }
+  .hero-content h3 { font-size: 36px; }
 }
 
 @media (max-width: 768px) {
-  .hero-slider {
-    height: 300px;
-    border-radius: 0 0 30px 30px;
-  }
-
-  .hero-slide {
-    padding: 0 30px;
-  }
-
-  .hero-content h1 {
-    font-size: 36px;
-  }
-
-  .hero-content p {
-    font-size: 16px;
-    margin: 15px 0 20px;
-  }
-
-  .hero-content h3 {
-    font-size: 28px;
-  }
-
-  .hero-btn {
-    width: 48px;
-    height: 48px;
-    font-size: 20px;
-  }
-
-  .hero-btn.left {
-    left: 15px;
-  }
-
-  .hero-btn.right {
-    right: 15px;
-  }
-
-  .product-list {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-  }
+  .hero-slider { height: 300px; border-radius: 0 0 30px 30px; }
+  .hero-slide { padding: 0 30px; }
+  .hero-content h1 { font-size: 36px; }
+  .hero-content h3 { font-size: 28px; }
+  .product-list { grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap:20px; }
 }
 
 @media (max-width: 480px) {
-  .hero-slider {
-    height: 250px;
-  }
-
-  .hero-content h1 {
-    font-size: 28px;
-  }
-
-  .hero-content h3 {
-    font-size: 22px;
-  }
-
-  .product-list {
-    grid-template-columns: 1fr;
-  }
-
-  .logout-btn {
-    padding: 8px 16px;
-    font-size: 13px;
-  }
+  .hero-slider { height: 250px; }
+  .hero-content h1 { font-size: 28px; }
+  .hero-content h3 { font-size: 22px; }
+  .product-list { grid-template-columns: 1fr; }
 }
