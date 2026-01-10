@@ -2,11 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Search from "./Search";
 import "../styles/Header.css";
+import AddElement from "./AddElement";
 
 function Header() {
   const [hidden, setHidden] = useState(false);
+  const [open , setOpen] = useState(false)
   const timerRef = useRef(null);
-  const navigate = useNavigate();
 
   const resetTimer = () => {
     setHidden(false);
@@ -40,6 +41,10 @@ function Header() {
     };
   }, []);
 
+  function addelement(){
+    setOpen(true)
+  }
+
   return (
     <header className={`header ${hidden ? "header--hidden" : ""}`}>
       <div className="header__left">
@@ -65,6 +70,10 @@ function Header() {
           <option value="7">Ice drink</option>
         </select>
       </div>
+      <div className="add-div">
+        <button className="add-btn" onClick={addelement}>Add element</button>
+      </div>
+      {open && <AddElement onClose={()=>setOpen(false)}/>}
     </header>
   );
 }

@@ -4,7 +4,7 @@ import addMethod from "../utils/cartSavedInteractions";
 import { FaHeart } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
-function Card({ name, description, price, quantity, inStock, id }) {
+function Card({ name, description, price, quantity, inStock, id , image }) {
   const navigate = useNavigate();
   const userId = JSON.parse(localStorage.getItem("loginConf"))?.user?.id;
 
@@ -28,6 +28,7 @@ function Card({ name, description, price, quantity, inStock, id }) {
 
   return (
     <div className={`product-card ${!inStock ? "disabled" : ""}`}>
+      <img src={image} alt="" width={280} height={350} className="product-image"/>
       
       <FaHeart
         className={`heart-icon ${liked ? "liked" : ""}`}

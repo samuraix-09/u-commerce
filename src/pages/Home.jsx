@@ -106,6 +106,7 @@ function Home() {
               quantity={item.quantity}
               inStock={item.inStock}
               id={item.id}
+              image={item.image}
             />
           ))}
         </div>

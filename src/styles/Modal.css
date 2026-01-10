@@ -1,0 +1,148 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  animation: fadeIn 0.25s ease;
+}
+
+.modal {
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 28px;
+  box-shadow: 0 35px 60px rgba(0,0,0,0.25);
+  animation: scaleIn 0.3s ease;
+  font-family: "Inter", sans-serif;
+}
+
+.modal h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Input wrapper */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Input field */
+.input-group input {
+  width: 100%;
+  padding: 16px 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 14px;
+  background: #2c2b2b;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.input-group input::placeholder {
+  color: transparent;
+}
+
+/* Floating label */
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 14px;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 12px;
+  font-size: 12px;
+  color: #4f46e5;
+  background: #2e2b2b;
+  padding: 0 4px;
+}
+
+/* Input states */
+.input-group.filled input {
+  border-color: #16a34a;
+  background: #202120;
+}
+
+.input-group.error input {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.input-group.error label {
+  color: #dc2626;
+}
+
+/* Error message */
+.error-msg {
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Buttons */
+.modal-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.modal button {
+  flex: 1;
+  padding: 14px 0;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.btn-save {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+}
+
+.btn-save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79,70,229,0.4);
+}
+
+.btn-close {
+  background: #f1f1f1;
+  color: #333;
+}
+
+.btn-close:hover {
+  background: #e5e5e5;
+  transform: translateY(-1px);
+}
+
+/* Animations */
+@keyframes scaleIn {
+  from {opacity:0; transform: scale(0.92) translateY(10px);}
+  to {opacity:1; transform: scale(1) translateY(0);}
+}
+@keyframes fadeIn {
+  from {opacity:0;} to {opacity:1;}
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  .modal {margin:0 16px; padding:24px 20px;}
+}

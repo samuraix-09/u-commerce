@@ -20,6 +20,7 @@ function SearchElements({ elements }) {
           quantity={item.quantity}
           inStock={item.inStock}
           id={item.id}
+          image={item.image}
         />
       ))}
     </div>

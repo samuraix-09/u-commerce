@@ -1,88 +1,112 @@
+/* Sahifa umumiy */
 .card-details {
-  position: fixed;          /* butun ekran bo‘ylab */
-  inset: 0;                 /* top:0; left:0; right:0; bottom:0; */
+  min-height: 100vh;
+  padding: 40px 60px;
+  background: #f6f7fb;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-
-  background: rgba(0, 0, 0, 0.05); /* subtle overlay, focus on card */
-  font-family: 'Inter', sans-serif;
-  z-index: 1000;
+  justify-content: center;
+  gap: 60px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.card-details > div {
+/* 🖼️ Rasm */
+.card-details img {
+  width: 420px;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 18px;
   background: #fff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 500px;
-  width: 90%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
-.card-details > div:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+/* 📦 O'ng panel */
+.detail-description {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  padding: 34px 38px;
+  border-radius: 18px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
 }
 
-.card-details h1 {
-  font-size: 28px;
+/* Sarlavha */
+.detail-description h1 {
+  font-size: 26px;
   font-weight: 700;
-  margin-bottom: 15px;
+  color: #1f2937;
+  margin-bottom: 16px;
 }
 
-.card-details p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 20px;
+/* Ta'rif */
+.detail-description p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 24px;
 }
 
-.card-details h3 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #4f46e5;
+/* Narx */
+.detail-description h3 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #7f2aff; /* Uzum rang */
   margin-bottom: 10px;
 }
 
-.card-details h5 {
-  font-size: 16px;
+/* Ombor */
+.detail-description h5 {
+  font-size: 14px;
   font-weight: 500;
-  color: #10b981;
-  margin-bottom: 25px;
+  color: #16a34a;
+  margin-bottom: 28px;
 }
 
-.card-details button {
-  padding: 12px 30px;
+/* 🛒 Tugma */
+.detail-description button {
+  width: 100%;
+  padding: 15px 0;
+  border: none;
+  border-radius: 14px;
   font-size: 16px;
   font-weight: 600;
-  color: #fff;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border: none;
-  border-radius: 10px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #7f2aff, #a855f7);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
-.card-details button:hover {
-  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+.detail-description button:hover {
+  background: linear-gradient(135deg, #6b21ff, #9333ea);
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .card-details > div {
-    padding: 20px;
+.detail-description button:active {
+  transform: scale(0.96);
+}
+
+/* 📱 Responsive */
+@media (max-width: 900px) {
+  .card-details {
+    flex-direction: column;
+    padding: 24px;
+    gap: 32px;
   }
 
-  .card-details h1 {
-    font-size: 24px;
+  .card-details img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
   }
 
-  .card-details h3 {
-    font-size: 18px;
+  .detail-description {
+    padding: 26px 24px;
+  }
+
+  .detail-description h1,
+  .detail-description p,
+  .detail-description h3,
+  .detail-description h5 {
+    text-align: center;
   }
 }

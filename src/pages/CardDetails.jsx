@@ -18,11 +18,14 @@ export default function CardDetails() {
 
     return (
         <div className="card-details">
+            <img src={item.image} alt={item.description} />
+            <div className="detail-description">
             <h1>Name: {item.name}</h1>
             <p>Description: {item.description}</p>
             <h3>Price: {item.price}</h3>
             <h5>In stock: {item.quantity}</h5>
             <button>To cart</button>
+            </div>
         </div>
     );
 }

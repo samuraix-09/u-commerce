@@ -37,6 +37,7 @@ function Saved() {
             inCart={item.inCart}
             inStock={item.inStock}
             id={item.id}
+            image={item.image}
           />
         ))}
       </div>
