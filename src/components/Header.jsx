@@ -59,17 +59,6 @@ function Header() {
         <Search />
       </div>
 
-      <div className="header__right">
-        <select className="header__filter">
-          <option value="1">All</option>
-          <option value="2">Fruits</option>
-          <option value="3">Vegetables</option>
-          <option value="4">Food</option>
-          <option value="5">Fast food</option>
-          <option value="6">Drink</option>
-          <option value="7">Ice drink</option>
-        </select>
-      </div>
       <div className="add-div">
         <button className="add-btn" onClick={addelement}>Add element</button>
       </div>

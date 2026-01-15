@@ -76,6 +76,16 @@ function Home() {
 
   return (
     <div className="home">
+      <div className="filter-div">
+        <button className="filter-btn">Eng yangilari</button>
+        <button className="filter-btn">Oziq ovqat mahsulotlari</button>
+        <button className="filter-btn">Uy anjomlari</button>
+        <button className="filter-btn">Kiyim kechak</button>
+        <button className="filter-btn">Texnikalar</button>
+        <button className="filter-btn">Oshxona anjomlari</button>
+        <button className="filter-btn">Kasmetika buyumlari</button>
+        <button className="filter-btn">Musiqa instrumentlari</button>
+      </div>
       <div className="hero-slider">
         <button className="hero-btn left">‹</button>
 

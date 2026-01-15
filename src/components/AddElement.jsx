@@ -3,27 +3,27 @@ import "../styles/Modal.css";
 
 const initialState = {
   name: "",
+  assestant: "",
   description: "",
-  number: "",
+  moreInfo: "",
+  quantity: "",
   price: "",
-  image: ""
+  image: "",
+  category: ""
 };
 
+const categories = [
+  "food",
+  "home",
+  "clothes",
+  "electronics",
+  "kitchen",
+  "cosmetics",
+  "music"
+];
+
 function reducer(state, action) {
-  switch (action.type) {
-    case "name":
-      return { ...state, name: action.payload };
-    case "description":
-      return { ...state, description: action.payload };
-    case "number":
-      return { ...state, number: action.payload };
-    case "price":
-      return { ...state, price: action.payload };
-    case "image":
-      return { ...state, image: action.payload };
-    default:
-      return state;
-  }
+  return { ...state, [action.type]: action.payload };
 }
 
 export default function AddElement({ onClose }) {
@@ -32,17 +32,18 @@ export default function AddElement({ onClose }) {
   const [loading, setLoading] = useState(false);
 
   const validate = () => {
-    const newErrors = {};
-    if (!data.name.trim()) newErrors.name = "Mahsulot nomi kerak";
-    if (!data.number || Number(data.number) <= 0) newErrors.number = "Son > 0 bo‘lishi kerak";
-    if (!data.price || Number(data.price) <= 0) newErrors.price = "Narx > 0 bo‘lishi kerak";
-    return newErrors;
+    const e = {};
+    if (!data.name.trim()) e.name = "Mahsulot nomi kerak";
+    if (!data.category) e.category = "Kategoriya tanlang";
+    if (!data.quantity || Number(data.quantity) <= 0) e.quantity = "Son > 0";
+    if (!data.price || Number(data.price) <= 0) e.price = "Narx > 0";
+    return e;
   };
 
   async function addelement() {
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+    const v = validate();
+    if (Object.keys(v).length) {
+      setErrors(v);
       return;
     }
 
@@ -53,7 +54,7 @@ export default function AddElement({ onClose }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
-          number: Number(data.number),
+          quantity: Number(data.quantity),
           price: Number(data.price),
           status: "new",
           inStock: true,
@@ -61,84 +62,72 @@ export default function AddElement({ onClose }) {
         })
       });
 
-      const result = await res.json();
-
-      if (!res.ok) throw new Error(result.message || "Failed to Add element");
-
-      alert("Element muvaffaqiyatli qo‘shildi!");
+      if (!res.ok) throw new Error("Failed");
       onClose();
-    } catch (error) {
-      alert(error.message);
     } finally {
       setLoading(false);
     }
   }
 
-  const handleChange = (field, value) => {
-    dispatch({ type: field, payload: value });
-    setErrors(prev => ({ ...prev, [field]: null }));
+  const handleChange = (f, v) => {
+    dispatch({ type: f, payload: v });
+    setErrors(p => ({ ...p, [f]: null }));
   };
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" onClick={e => e.stopPropagation()}>
+      <div className="modal wide" onClick={e => e.stopPropagation()}>
         <h2>Add new element</h2>
 
-        {/** INPUTS **/}
-        <div className={`input-group ${errors.name ? "error" : data.name ? "filled" : ""}`}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={data.name}
-            onChange={e => handleChange("name", e.target.value)}
-          />
-          <label>Mahsulot nomi</label>
-          {errors.name && <span className="error-msg">{errors.name}</span>}
+        <div className="modal-grid">
+          <div className="modal-col">
+            <div className={`input-group ${errors.name ? "error" : data.name ? "filled" : ""}`}>
+              <input value={data.name} onChange={e => handleChange("name", e.target.value)} />
+              <label>Product name</label>
+            </div>
+
+            <div className={`input-group ${data.assestant ? "filled" : ""}`}>
+              <input value={data.assestant} onChange={e => handleChange("assestant", e.target.value)} />
+              <label>Assestant name</label>
+            </div>
+
+            <div className={`input-group ${errors.price ? "error" : data.price ? "filled" : ""}`}>
+              <input type="number" value={data.price} onChange={e => handleChange("price", e.target.value)} />
+              <label>Price</label>
+            </div>
+          </div>
+
+          <div className="modal-col">
+            <div className={`input-group ${data.description ? "filled" : ""}`}>
+              <input value={data.description} onChange={e => handleChange("description", e.target.value)} />
+              <label>Description</label>
+            </div>
+
+            <div className={`input-group ${data.moreInfo ? "filled" : ""}`}>
+              <textarea value={data.moreInfo} onChange={e => handleChange("moreInfo", e.target.value)} />
+              <label>More info</label>
+            </div>
+
+            <div className={`input-group ${errors.category ? "error" : data.category ? "filled" : ""}`}>
+              <select value={data.category} onChange={e => handleChange("category", e.target.value)}>
+                {categories.map(c => <option key={c} value={c}>{c}</option>)}
+              </select>
+              <label>Category</label>
+            </div>
+
+            <div className={`input-group ${errors.quantity ? "error" : data.quantity ? "filled" : ""}`}>
+              <input type="number" value={data.quantity} onChange={e => handleChange("quantity", e.target.value)} />
+              <label>Quantity</label>
+            </div>
+
+            <div className={`input-group ${data.image ? "filled" : ""}`}>
+              <input value={data.image} onChange={e => handleChange("image", e.target.value)} />
+              <label>Image URL</label>
+            </div>
+          </div>
         </div>
 
-        <div className={`input-group ${data.description ? "filled" : ""}`}>
-          <input
-            type="text"
-            placeholder="Description"
-            value={data.description}
-            onChange={e => handleChange("description", e.target.value)}
-          />
-          <label>Mahsulot haqida</label>
-        </div>
-
-        <div className={`input-group ${errors.number ? "error" : data.number ? "filled" : ""}`}>
-          <input
-            type="number"
-            placeholder="Number"
-            value={data.number}
-            onChange={e => handleChange("number", e.target.value)}
-          />
-          <label>Mahsulot soni</label>
-          {errors.number && <span className="error-msg">{errors.number}</span>}
-        </div>
-
-        <div className={`input-group ${errors.price ? "error" : data.price ? "filled" : ""}`}>
-          <input
-            type="number"
-            placeholder="Price"
-            value={data.price}
-            onChange={e => handleChange("price", e.target.value)}
-          />
-          <label>Mahsulot narxi</label>
-          {errors.price && <span className="error-msg">{errors.price}</span>}
-        </div>
-
-        <div className={`input-group ${data.image ? "filled" : ""}`}>
-          <input
-            type="text"
-            placeholder="Image URL"
-            value={data.image}
-            onChange={e => handleChange("image", e.target.value)}
-          />
-          <label>Mahsulot rasm linki</label>
-        </div>
-
-        <div className="modal-actions">
+        <div className="modal-actions center">
           <button className="btn-save" onClick={addelement} disabled={loading}>
             {loading ? "Saving..." : "Save"}
           </button>

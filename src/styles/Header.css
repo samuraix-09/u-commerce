@@ -44,12 +44,7 @@
   margin: 0 24px;
 }
 
-/* O‘ng qism */
-.header__right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+
 
 /* Select (filter) */
 .header__filter {

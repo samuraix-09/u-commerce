@@ -22,6 +22,7 @@ export default function CardDetails() {
             <div className="detail-description">
             <h1>Name: {item.name}</h1>
             <p>Description: {item.description}</p>
+            <p>More information: {item.moreInfo}</p>
             <h3>Price: {item.price}</h3>
             <h5>In stock: {item.quantity}</h5>
             <button>To cart</button>

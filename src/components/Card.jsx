@@ -1,53 +1,97 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/Card.css";
-import addMethod from "../utils/cartSavedInteractions";
 import { FaHeart } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
-function Card({ name, description, price, quantity, inStock, id , image }) {
+const API = "http://localhost:3000";
+
+function Card({ name, description, price, quantity, inStock, id, image }) {
   const navigate = useNavigate();
   const userId = JSON.parse(localStorage.getItem("loginConf"))?.user?.id;
 
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("saved")) || [];
-    setLiked(saved.includes(id));
-  }, [id]);
+    if (!userId) return;
 
-  function addToCart(id) {
-    addMethod(userId, "cart", id);
-  }
+    fetch(`${API}/users/${userId}`)
+      .then(res => res.json())
+      .then(user => {
+        setLiked(user.saved?.includes(id));
+      });
+  }, [id, userId]);
 
-  function toggleSaved(e) {
+  // 🛒 Cart
+  async function addToCart(e) {
     e.stopPropagation();
 
-    addMethod(userId, "saved", id);
-    setLiked(prev => !prev);
+    const res = await fetch(`${API}/users/${userId}`);
+    const user = await res.json();
+
+    const updatedCart = user.cart?.includes(id)
+      ? user.cart
+      : [...(user.cart || []), id];
+
+    await fetch(`${API}/users/${userId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cart: updatedCart })
+    });
+  }
+
+  async function toggleSaved(e) {
+    e.stopPropagation();
+
+    const res = await fetch(`${API}/users/${userId}`);
+    const user = await res.json();
+
+    let updatedSaved;
+
+    if (user.saved?.includes(id)) {
+      updatedSaved = user.saved.filter(pid => pid !== id);
+      setLiked(false);
+    } else {
+      updatedSaved = [...(user.saved || []), id];
+      setLiked(true);
+    }
+
+    await fetch(`${API}/users/${userId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ saved: updatedSaved })
+    });
   }
 
   return (
-    <div className={`product-card ${!inStock ? "disabled" : ""}`}>
-      <img src={image} alt="" width={280} height={350} className="product-image"/>
-      
+    <div
+      className={`product-card ${!inStock ? "disabled" : ""}`}
+      onClick={() => navigate(`/productDetails/${id}`)}
+    >
+      <img
+        src={image}
+        alt={name}
+        width={280}
+        height={350}
+        className="product-image"
+      />
+
       <FaHeart
         className={`heart-icon ${liked ? "liked" : ""}`}
         onClick={toggleSaved}
       />
 
-      <div
-        className="product-body"
-        onClick={() => navigate(`/productDetails/${id}`)}
-      >
+      <div className="product-body">
         <h1>{name}</h1>
         <p>{description}</p>
-        <h3>{price} so'm</h3>
+        <div className="price-div">
+          <p className="card-price">{price} so'm</p>
+        </div>
         <h5>{quantity} dona mavjud</h5>
       </div>
 
       <button
         className="product-btn"
-        onClick={() => addToCart(id)}
+        onClick={addToCart}
         disabled={!inStock}
       >
         Add to cart

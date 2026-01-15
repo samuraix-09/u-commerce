@@ -24,7 +24,7 @@
 
 .product-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* ===============================
@@ -84,11 +84,10 @@
   margin-bottom: 10px;
 }
 
-.product-body h3 {
-  font-size: 20px;
-  font-weight: 700;
-  color: #27ae60;
-  margin-top: 5px;
+.card-price{
+  font-size: 16px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 4px;
 }
 
 /* ===============================
@@ -119,6 +118,14 @@
   background: #999;
   cursor: not-allowed;
   box-shadow: none;
+}
+
+.price-div{
+  padding: 0.33px;
+  border: 1px solid gold;
+  background-color: gold;
+  border-radius: 15px;
+  text-align: center;
 }
 
 /* ===============================

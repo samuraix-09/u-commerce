@@ -45,7 +45,9 @@
       "password": "$2a$10$kKQ.oSa9occvAToHJKMTxOjjyW29zhq9.j5sYKZzoazVyrQ8w5TI6",
       "name": "Sirojiddin Gaybullayev",
       "status": "user",
-      "cart": [],
+      "cart": [
+        9
+      ],
       "saved": [],
       "activities": [],
       "id": 752600712459.6941
@@ -57,8 +59,10 @@
       "name": "Olma yogurti",
       "price": 5000,
       "description": "Fruto nyanya olmali yogurti",
+      "moreInfo": "Aloqa uchun:+998902490922\nManzil:Sariosiyo Lutfkor 15-tor kocha \nMahsulot egasi:Abdumajidov Abdumajid",
       "inStock": true,
       "quantity": 20,
+      "category": "Food",
       "status": "new",
       "image": "https://images.uzum.uz/cl4eiet6sfhgee0kq3o0/original.jpg",
       "purchased": 0
@@ -68,8 +72,10 @@
       "name": "Bliss",
       "price": 7000,
       "description": "Banan va olmadan ajoyib miks",
+      "moreInfo": "Aloqa uchun:+998902490922\nManzil:Sariosiyo Lutfkor 15-tor kocha \nMahsulot egasi:Abdumajidov Abdumajid",
       "inStock": true,
       "quantity": 15,
+      "category": "Food",
       "status": "active",
       "image": "https://images.uzum.uz/crfc3l42gps3jqbfr3m0/original.jpg",
       "purchased": 0
@@ -79,8 +85,10 @@
       "name": "Sut",
       "price": 12000,
       "description": "Tabiiy sigir suti, 1L",
+      "moreInfo": "Aloqa uchun:+998902490922\nManzil:Sariosiyo Lutfkor 15-tor kocha \nMahsulot egasi:Abdumajidov Abdumajid",
       "inStock": true,
       "quantity": 30,
+      "category": "Food",
       "status": "active",
       "image": "https://images.uzum.uz/cm0lnphm4v40qheg0bd0/original.jpg",
       "purchased": 0
@@ -90,8 +98,10 @@
       "name": "Non",
       "price": 2500,
       "description": "Yangi pishgan non, kunlik",
+      "moreInfo": "Aloqa uchun:+998902490922\nManzil:Sariosiyo Lutfkor 15-tor kocha \nMahsulot egasi:Abdumajidov Abdumajid",
       "inStock": true,
       "quantity": 50,
+      "category": "Food",
       "status": "new",
       "image": "https://images.uzum.uz/d4uossbtqdhua1us83ig/t_product_540_high.jpg",
       "purchased": 0
@@ -101,8 +111,10 @@
       "name": "Tuxum",
       "price": 15000,
       "description": "Yirik tuxum, 10 ta paketda",
+      "moreInfo": "Aloqa uchun:+998902490922\nManzil:Sariosiyo Lutfkor 15-tor kocha \nMahsulot egasi:Abdumajidov Abdumajid",
       "inStock": true,
       "quantity": 40,
+      "category": "Food",
       "status": "active",
       "image": "https://images.uzum.uz/cr87p8dbnta1ogm7pbjg/original.jpg",
       "purchased": 0
@@ -112,8 +124,10 @@
       "name": "Shakar",
       "price": 8000,
       "description": "Oq shakar, 1kg",
+      "moreInfo": "Aloqa uchun:+998902490922\nManzil:Sariosiyo Lutfkor 15-tor kocha \nMahsulot egasi:Abdumajidov Abdumajid",
       "inStock": true,
       "quantity": 25,
+      "category": "Food",
       "status": "active",
       "image": "https://images.uzum.uz/cqeus5kqvss6ad8j40sg/original.jpg",
       "purchased": 0
@@ -121,13 +135,41 @@
     {
       "name": "Turon uni ",
       "description": "Toza bugdoy uni 1kg li sifatli va arzon",
-      "number": 12,
+      "moreInfo": "Aloqa uchun:+998902490922\nManzil:Sariosiyo Lutfkor 15-tor kocha \nMahsulot egasi:Abdumajidov Abdumajid",
+      "quantity": 12,
+      "category": "Food",
       "price": 24990,
       "image": "https://images.uzum.uz/cfb8o18l08k0o9qin800/original.jpg",
       "status": "new",
       "inStock": true,
       "purchased": 0,
       "id": 7
+    },
+    {
+      "name": "Iphone 17 pro max",
+      "description": "512/16gb holati yangi rangi jigar rang ",
+      "moreInfo": "Aloqa uchun:+998902490922\nManzil:Sariosiyo Lutfkor 15-tor kocha \nMahsulot egasi:Abdumajidov Abdumajid",
+      "quantity": 25,
+      "price": 17899000,
+      "image": "https://images.uzum.uz/d3dmijlr1spn6sl2dabg/original.jpg",
+      "category": "electronics",
+      "status": "new",
+      "inStock": true,
+      "purchased": 0,
+      "id": 8
+    },
+    {
+      "name": "Nivea men",
+      "description": "Erkaklar uchun dezaderand nivea men ",
+      "moreInfo": "Aloqa uchun:+998902490922\nManzil:Sariosiyo Lutfkor 15-tor kocha \nMahsulot egasi:Abdumajidov Abdumajid",
+      "quantity": 35,
+      "price": 43000,
+      "image": "https://images.uzum.uz/d3j603gqpongbuig1ulg/original.jpg",
+      "category": "cosmetics",
+      "status": "new",
+      "inStock": true,
+      "purchased": 0,
+      "id": 9
     }
   ]
 }
