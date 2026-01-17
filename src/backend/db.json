@@ -15,8 +15,19 @@
       "password": "$2a$10$UCN32FHzM/nclJsJJC8t2uQdwv.7OIDkweG4GFSQ7uqEHlzTsE/Ri",
       "name": "Akobir",
       "status": "user",
-      "cart": [],
-      "saved": [],
+      "cart": [
+        {
+          "id": "1",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "quantity": 1
+        }
+      ],
+      "saved": [
+        1
+      ],
       "activities": [],
       "id": 752600712456.6941
     },

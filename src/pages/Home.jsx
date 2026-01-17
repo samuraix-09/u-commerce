@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
 import Card from "../components/Card";
-import AddCard from "../components/AddCard";
+import AddCard from "../components/AdCard";
 import { FaArrowDown, FaChevronDown } from "react-icons/fa";
 
 function Home() {
@@ -92,6 +92,7 @@ function Home() {
         <div className="hero-track">
           {newProduct.map(item => (
             <AddCard
+              onClick={() => navigate(`/productDetails/${item.id}`)}
               key={item.id}
               name={item.name}
               description={item.description}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Card from "../components/Card";
 import "../styles/Cart.css";
 import { getMethod } from "../utils/cartSavedInteractions";
+import CartCard from "../components/CartCards";
 
 function Cart() {
   const [cartproducts, setCartProducts] = useState([]);
@@ -18,7 +18,7 @@ function Cart() {
     fetchCart();
   }, []);
 
-  
+  console.log(cartproducts);
 
   return (
     <div className="cart-page">
@@ -30,17 +30,7 @@ function Cart() {
 
       <div className="cart-grid">
         {cartproducts.map(item => (
-          <Card
-            key={item.id}
-            name={item.name}
-            description={item.description}
-            price={item.price}
-            quantity={item.quantity}
-            inCart={item.inCart}
-            inStock={item.inStock}
-            id={item.id}
-            image={item.image}
-          />
+          <CartCard key={item.id} data={item}/>
         ))}
       </div>
     </div>

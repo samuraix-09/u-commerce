@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../styles/AddCard.css";
+import "../styles/AdCard.css";
 
 function AddCard({ name, description, price, id }) {
   const navigate = useNavigate();

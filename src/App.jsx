@@ -30,11 +30,11 @@ function App() {
       element: <ProtectedRoot />,
       children: [
         { path: "/home", element: <ProtectedRoute><Home /></ProtectedRoute> },
-        { path: "/search", element: <ProtectedRoute><SearchPage/></ProtectedRoute> },
+        { path: "/search", element: <ProtectedRoute><SearchPage /></ProtectedRoute> },
         { path: "/saved", element: <ProtectedRoute><Saved /></ProtectedRoute> },
         { path: "/cart", element: <ProtectedRoute><Cart /></ProtectedRoute> },
         { path: "/account", element: <ProtectedRoute><Account /></ProtectedRoute> },
-        { path: "/productDetails/:id", element: <ProtectedRoute><CardDetails /></ProtectedRoute>}
+        { path: "/productDetails/:id", element: <ProtectedRoute><CardDetails /></ProtectedRoute> }
       ],
     },
     { path: "*", element: <Navigate to="/" /> },

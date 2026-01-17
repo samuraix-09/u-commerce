@@ -91,7 +91,7 @@ function Card({ name, description, price, quantity, inStock, id, image }) {
 
       <button
         className="product-btn"
-        onClick={addToCart}
+        onClick={() => navigate(`/productDetails/${id}`)}
         disabled={!inStock}
       >
         Add to cart
