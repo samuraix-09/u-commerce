@@ -57,7 +57,14 @@
       "name": "Sirojiddin Gaybullayev",
       "status": "user",
       "cart": [
-        9
+        {
+          "id": "3",
+          "quantity": 2
+        },
+        {
+          "id": "1",
+          "quantity": 2
+        }
       ],
       "saved": [],
       "activities": [],

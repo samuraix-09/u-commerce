@@ -25,16 +25,33 @@
 .header__left {
   display: flex;
   align-items: center;
+  gap: 6px;
 }
+
 
 .header__logo {
-  height: 38px;
+  height: 55px;
+  width: 55px;
+  border-radius: 10px;
+  object-fit: cover;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.logo-text {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  user-select: none;
+  white-space: nowrap;
+}
+
+
 .header__logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
 }
 
 /* Markaz (Search joyi) */

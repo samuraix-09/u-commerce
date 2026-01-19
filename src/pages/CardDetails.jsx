@@ -18,38 +18,32 @@ export default function CardDetails() {
         })();
     }, [id]);
 
-    // Quantityni oshirish funksiyasi
     const increaseQuantity = () => {
         if (item && quantity < item.quantity) {
             setQuantity(prev => prev + 1);
         }
     };
 
-    // Quantityni kamaytirish funksiyasi
     const decreaseQuantity = () => {
         if (quantity > 1) {
             setQuantity(prev => prev - 1);
         }
     };
 
-    // Input orqali quantity o'zgartirish
     const handleQuantityChange = (e) => {
         const value = parseInt(e.target.value);
 
         if (!isNaN(value) && value > 0) {
             if (item && value > item.quantity) {
-                // Maximal miqdordan oshib ketmasligi uchun
                 setQuantity(item.quantity);
             } else {
                 setQuantity(value);
             }
         } else if (e.target.value === "") {
-            // Input bo'sh bo'lsa
             setQuantity("");
         }
     };
 
-    // Input focusdan chiqqanda validatsiya
     const handleQuantityBlur = () => {
         if (quantity === "" || quantity < 1) {
             setQuantity(1);
@@ -118,14 +112,13 @@ export default function CardDetails() {
                     </div>}
 
                 <div className="delivery-info">
-                    <h3>Gets delivered within a day</h3>
+                    <h3>Gets delivered within a week</h3>
                     <p>To the pick-up point or by a courier</p>
                 </div>
 
                 <div className="payment-info">
                     <h3>Pay however you want</h3>
                     <p>By credit card or by cash</p>
-                    {/* credit cards like visa and mastercard pics or icons here */}
                 </div>
             </div>
         </div>

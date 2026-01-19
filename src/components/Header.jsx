@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Search from "./Search";
 import "../styles/Header.css";
 import AddElement from "./AddElement";
+import logo from "../Images/Ventro.png"
 
 function Header() {
   const [hidden, setHidden] = useState(false);
@@ -50,9 +50,10 @@ function Header() {
       <div className="header__left">
         <img
           className="header__logo"
-          src="https://ucommerce.net/hubfs/Ucommerce%20and%20CMS%20Logo/Ucommerce%20logos/ucommerce-widelogo.svg"
-          alt="U-Commerce logo"
+          src={logo}
+          alt="Ventro logo"
         />
+        <h1 className="logo-text">Ventro</h1>
       </div>
 
       <div className="header__center">
